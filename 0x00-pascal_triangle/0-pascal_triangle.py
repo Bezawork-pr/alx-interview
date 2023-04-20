@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""This file contains function pascal_triangle"""
+
+
 def pascal_triangle(n):
     """pascal triangle """
     my_list = []
