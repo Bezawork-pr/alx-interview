@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-from math import factorial
 def pascal_triangle(n):
+    """pascal triangle """
     my_list = []
     if n <= 0:
         return my_list
