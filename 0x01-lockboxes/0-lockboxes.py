@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-"""This file contains a method that can that 
+"""This file contains a method that can that
 determines if all the boxes can be opened"""
+
+
 def canUnlockAll(boxes):
     """Check if all the boxes can be unlocked"""
     check_box, boxes_new, keys = [], [], boxes[0]
