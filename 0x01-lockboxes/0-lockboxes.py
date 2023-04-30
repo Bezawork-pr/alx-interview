@@ -8,7 +8,7 @@ def canUnlockAll(boxes):
     check_box, boxes_new, keys = [], [], boxes[0]
     start_point, flag, count = 1, 1, 0
     if (len(boxes) == 1):
-        return Tru
+        return True
     for key in keys:
         check_box.append(key)
     while flag == 1:
