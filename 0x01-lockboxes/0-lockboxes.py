@@ -10,8 +10,6 @@ def canUnlockAll(boxes):
     if (len(boxes) == 1):
         return Tru
     for key in keys:
-        if key > len(boxes):
-            return False
         check_box.append(key)
     while flag == 1:
         for i in range(start_point, len(check_box) + 1):
