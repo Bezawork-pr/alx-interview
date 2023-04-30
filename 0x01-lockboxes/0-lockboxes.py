@@ -18,6 +18,8 @@ def canUnlockAll(boxes):
                 break
             keys = boxes[i]
             for key in keys:
+                if key > len(boxes):
+                    return False
                 check_box.append(key)
     set_check_box = set(check_box)
     for i in boxes:
