@@ -2,19 +2,18 @@
 """write a method that calculates the fewest number
 of operations needed to result in exactly
 n H characters in the file"""
-from typing import List
 
 
-def minOperations(n: int) -> int:
+def minOperations(n):
     """Calculate how many operation is needed to get to n
     number of Hs"""
-    num: int = 1
-    num_of_operations: int = 0
-    cp_paste_operation: int = 2
-    paste_operation: int = 1
-    flag: int = 1
-    i: int = 0
-    count: int = 0
+    num = 1
+    num_of_operations = 0
+    cp_paste_operation = 2
+    paste_operation = 1
+    flag = 1
+    i = 0
+    count = 0
     increment: List = [1, 3, 6, 12]
     if (type(n) != int):
         raise TypeError('Expected int')
