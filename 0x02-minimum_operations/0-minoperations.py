@@ -2,33 +2,40 @@
 """write a method that calculates the fewest number
 of operations needed to result in exactly
 n H characters in the file"""
-def minOperations(n):
-    num = 1
-    number_of_operations = 0
-    copy_paste_operation = 2
-    paste_operation = 1
-    flag = 1
-    i = 0
-    count = 0
-    increment = [1, 3, 6, 12]
+from typing import List
+
+
+def minOperations(n: int) -> int:
+    """Calculate how many operation is needed to get to n
+    number of Hs"""
+    num: int = 1
+    num_of_operations: int = 0
+    cp_paste_operation: int = 2
+    paste_operation: int = 1
+    flag: int = 1
+    i: int = 0
+    count: int = 0
+    increment: List = [1, 3, 6, 12]
+    if (type(n) != int):
+        raise TypeError('Expected int')
+    if n == 0:
+        return 0
     while(num != n and num < n):
         count += 1
         if count == 50:
             return 0
-        print(num, n)
-        if flag == 1:
-            if number_of_operations == 0:
-                number_of_operations = copy_paste_operation
+        if flag == 1 and n - num > increment[i]:
+            if num_of_operations == 0:
+                num_of_operations = cp_paste_operation
                 num = num + increment[i]
             else:
-                number_of_operations = number_of_operations + copy_paste_operation
+                num_of_operations = num_of_operations + cp_paste_operation
                 if (n - num > i):
-                    print("Do u get here")
                     i = i + 1
                 num = num + increment[i]
             flag = 0
         else:
             num = num + increment[i]
-            number_of_operations = number_of_operations + 1
+            num_of_operations = num_of_operations + paste_operation
             flag = 1
-    return number_of_operations
+    return num_of_operations
