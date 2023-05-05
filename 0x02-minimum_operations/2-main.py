@@ -6,4 +6,4 @@ import sys
 
 minOperations = __import__('0-minoperations').minOperations
 
-print(minOperations(12))
+print(minOperations(21))
