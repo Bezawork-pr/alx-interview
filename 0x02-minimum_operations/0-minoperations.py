@@ -19,22 +19,19 @@ def minOperations(n):
         if count == 50:
             return 0
         if flag == 1 and n - num > increment[i]:
-            print(i)
             if num_of_operations == 0:
                 num_of_operations = cp_paste_operation
                 num = num + increment[i]
             else:
-                print(i)
                 num_of_operations = num_of_operations + cp_paste_operation
                 if n - num > i:
                     i = i + 1
                 num = num + increment[i]
             flag = 0
         else:
-            print(i)
             num = num + increment[i]
             num_of_operations = num_of_operations + paste_operation
             flag = 1
-        return num_of_operations
+    return num_of_operations
 
 
