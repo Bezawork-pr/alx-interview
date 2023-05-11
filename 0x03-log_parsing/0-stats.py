@@ -32,6 +32,6 @@ if __name__ == "__main__":
         print("File size: {}".format(add_file_size))
         sorted_dict = sorted(s_repeat.items())
         for key, value in sorted_dict:
-             if s_repeat[key] != 0:
-                 print("{}: {}".format(key, value))
+            if s_repeat[key] != 0:
+                print("{}: {}".format(key, value))
         raise
