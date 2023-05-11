@@ -5,19 +5,24 @@ and computes metrics
 """
 import sys
 
-count = 1
+total = 0
+current = 10
 add_file_size = 0
 
 s_repeat = {"200": 0, "301": 0, "400": 0, "401": 0,
             "403": 0, "404": 0, "405": 0, "500": 0}
 for line in sys.stdin:
     log_list = line.split(" ")
-    count += 1
-    if count == 10:
+    dict_values = list(s_repeat.values())
+    total = sum(dict_values)
+    if total == current:
         print("File size: {}".format(add_file_size))
-        sorted_dict = sorted(s_repeat.items(), key=lambda x: x[1])
+        sorted_dict = sorted(s_repeat.items())
         for key, value in sorted_dict:
-            print("{}: {}".format(key, value))
-        count = 1
+            if s_repeat[key] != 0:
+                print("{}: {}".format(key, value))
+        current += 10
+    else:
+        total = 0
     s_repeat[log_list[-2]] += 1
     add_file_size += int(log_list[-1])
