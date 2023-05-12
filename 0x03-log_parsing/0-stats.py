@@ -6,8 +6,6 @@ debug checker error
 """
 
 if __name__ == "__main__":
-
-
     import sys
 
     def printer(add_file_size, s_repeat):
@@ -23,7 +21,7 @@ if __name__ == "__main__":
 
     s_repeat = {"200": 0, "301": 0, "400": 0, "401": 0,
                 "403": 0, "404": 0, "405": 0, "500": 0}
-    try: 
+    try:
         for line in sys.stdin:
             log_list = line.split(" ")
             dict_values = list(s_repeat.values())
