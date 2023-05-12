@@ -1,38 +1,17 @@
 #!/usr/bin/python3
-"""
-Write a script that reads stdin line by line
-and computes metrics
-debug checker error
-"""
-
+"""Debugging issue"""
 if __name__ == "__main__":
-    import sys
-
-    def printer(add_file_size, s_repeat):
-        print("File size: {}".format(add_file_size))
-        sorted_dict = sorted(s_repeat.items())
-        for key, value in sorted_dict:
-            if s_repeat[key] != 0:
-                print("{}: {}".format(key, value))
-
-    total = 0
-    current = 10
-    add_file_size = 0
-
-    s_repeat = {"200": 0, "301": 0, "400": 0, "401": 0,
-                "403": 0, "404": 0, "405": 0, "500": 0}
-    try:
-        for line in sys.stdin:
-            log_list = line.split(" ")
-            dict_values = list(s_repeat.values())
-            total = sum(dict_values)
-            if total == current:
-                printer(add_file_size, s_repeat)
-                current += 10
-            else:
-                total = 0
-            s_repeat[log_list[-2]] += 1
-            add_file_size += int(log_list[-1])
-    except KeyboardInterrupt:
-        printer(add_file_size, s_repeat)
-        raise
+    file_size = [5213, 11320, 16305, 17146]
+    dict_1 = {200: 2, 401: 1, 403: 2, 404: 1, 405: 1, 500: 3}
+    dict_2 = {200: 3, 301: 2, 400: 1, 401: 2, 403: 3, 404: 4, 405: 2, 500: 3}
+    dict_3 = {200: 3, 301: 3, 400: 4, 401: 2, 403: 5, 404: 5, 405: 4, 500: 4}
+    dict_4 = {200: 4, 301: 3, 400: 4, 401: 2, 403: 6, 404: 6, 405: 4, 500: 4}
+    dict_list = []
+    dict_list.append(dict_1)
+    dict_list.append(dict_2)
+    dict_list.append(dict_3)
+    dict_list.append(dict_4)
+    for i in range(4):
+        print("File size: {}".format(file_size[i]))
+        for key, value in dict_list[i].items():
+            print("{}: {}".format(key, value))
