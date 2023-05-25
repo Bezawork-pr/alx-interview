@@ -20,10 +20,11 @@ if __name__ == "__main__":
     add_file_size = 0
 
     s_repeat = {"200": 0, "301": 0, "400": 0, "401": 0,
-                "403": 0, "404": 0, "405": 0, "500": 0}
+           "403": 0, "404": 0, "405": 0, "500": 0}
     try:
         for line in sys.stdin:
             log_list = line.split(" ")
+            print(log_list)
             dict_values = list(s_repeat.values())
             total = sum(dict_values)
             if total == current:
