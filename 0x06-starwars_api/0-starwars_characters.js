@@ -9,9 +9,9 @@ request(ip + movieId, (error, response, body) => {
   getCharacters(characterIp);
 });
 
-function getCharacters (characterIp) {
+async function getCharacters (characterIp) {
   for (let i = 0; i < characterIp.length; i++) {
-    Promise(function (resolve, reject) {
+    await new Promise(function (resolve, reject) {
       request(characterIp[i], (error, response, body) => {
         if (error) return console.error(error);
         const getName = JSON.parse(body).name;
