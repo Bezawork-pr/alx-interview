@@ -9,6 +9,8 @@ def makeChange(coins, total):
     a given amount total"""
     if total == 0 or total < 0:
         return 0
+    if len(coins) == 0:
+        return -1
     num_of_coins = 0
     while (total > 0):
         largest = coins[0]
