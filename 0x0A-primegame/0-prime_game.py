@@ -19,6 +19,8 @@ def isWinner(x, nums):
     player_ben_score = 0
     obj = {}
     count = 0
+    if x <= 0:
+        return "Maria"
     for num in nums:
         obj['list_' + str(num)] = []
         for i in range(1, num + 1):
