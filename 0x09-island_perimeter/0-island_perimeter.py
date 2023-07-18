@@ -4,21 +4,24 @@
 
 def island_perimeter(grid):
     """returns the perimeter of the island described in grid"""
-    param = 0
-    count_row = 0
-    for row in grid:
-        for cell in range(len(row)):
-            if row[cell] == 1:
-                param += 4
-            if row[cell] == 1 and cell != 0 and cell != len(row) - 1:
-                if row[cell - 1] == 1:
-                    param -= 1
-                if row[cell + 1] == 1:
-                    param -= 1
-            if row[cell] == 1 and count_row != 0 and count_row != len(row) - 1:
-                if grid[count_row - 1][cell] == 1:
-                    param -= 1
-                if grid[count_row + 1][cell] == 1:
-                    param -= 1
-        count_row += 1
-    return param
+    visit = set()
+
+    def dfs(row, column):
+        """Find Island and calculate"""
+        if row >= len(grid) or column >= len(grid[0]) or \
+                row < 0 or column < 0 or grid[row][column] == 0:
+            return 1
+        if (row, column) in visit:
+            return 0
+
+        visit.add((row, column))
+        perimeter = dfs(row, column + 1)
+        perimeter += dfs(row + 1, column)
+        perimeter += dfs(row, column - 1)
+        perimeter += dfs(row - 1, column)
+        return perimeter
+
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            if grid[i][j] == 1:
+                return dfs(i, j)
